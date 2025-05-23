@@ -8,6 +8,7 @@
   'variables';
 
 @import
+  'blocks/grid',
   'blocks/button',
   'blocks/burger-button',
   'blocks/close-button',
@@ -16,4 +17,8 @@
 
 @import
   'blocks/section',
-  'blocks/hero';
+  'blocks/hero',
+
+  'blocks/services',
+  'blocks/service-card',
+  'blocks/banner';

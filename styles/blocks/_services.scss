@@ -1,0 +1,30 @@
+.services {
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+
+  @include mobile{
+    row-gap: 70px;
+  }
+
+  &__item{
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow);
+    border: var(--border);
+    padding: 50px;
+
+    transition-duration: var(--transition-duration);
+    @include hover{
+      transform: scale(1.05);
+    }
+  }
+
+  &--bg{
+    &-accent{
+      background-color: var(--color-accent);
+    }
+    &-dark{
+      background-color: var(--color-dark);
+    }
+  }
+}

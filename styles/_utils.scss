@@ -5,16 +5,7 @@
 }
 
 .visually-hidden{
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  border: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  clip-path: inset(100%) !important;
-  clip: rect(0 0 0 0) !important;
-  overflow: hidden !important;
+  @include visually-hidden();
 }
 
 .mobile-hidden{
@@ -27,4 +18,16 @@
   @include mobile-above{
     display: none !important;
   }
+}
+
+.puddle-bg{
+  padding-inline: 7px;
+  border-radius: var(--border-radius-small);
+
+  &-accent{
+    background-color: var(--color-accent);
+  }
+  &-light{
+      background-color: var(--color-light);
+    }
 }

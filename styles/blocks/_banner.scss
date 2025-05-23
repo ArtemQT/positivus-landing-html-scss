@@ -1,0 +1,58 @@
+.banner{
+  --bannerImageOffsetY: 24px;
+
+  padding-block: var(--bannerImageOffsetY);
+
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color-gray);
+    border-radius: var(--border-radius-large);
+
+    @include mobile{
+      justify-content: center;
+    }
+  }
+
+  &__body{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 26px;
+
+    padding: 60px;
+
+    @include tablet{
+      padding: 30px;
+    }
+
+    @include mobile{
+      row-gap: 20px;
+    }
+  }
+
+  &__img {
+    margin-block: -23px;
+
+    @include mobile{
+      display: none;
+    }
+  }
+
+  &__description{
+    max-width: 500px;
+  }
+
+  &__button{
+    @include tablet{
+      font-size: 18px;
+    }
+
+    @include mobile{
+      width: 100%;
+    }
+
+  }
+}
