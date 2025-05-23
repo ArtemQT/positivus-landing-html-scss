@@ -16,9 +16,19 @@ $mobile-s: 480px;
     @content;
   }
 }
+@mixin desktop-above{
+  @media (min-width: $desktop-above){
+    @content;
+  }
+}
 
 @mixin tablet{
   @media (max-width: $tablet){
+    @content;
+  }
+}
+@mixin tablet-above {
+  @media (min-width: $tablet-above){
     @content;
   }
 }
