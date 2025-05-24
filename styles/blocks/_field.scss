@@ -1,0 +1,42 @@
+.field{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  @include mobile {
+    row-gap: 10px;
+  }
+
+  &__input{
+    padding: 18px 30px;
+    border-radius: var(--border-radius);
+    border: var(--border);
+
+    @include hover{
+      background-color: var(--color-accent);
+    }
+
+    @include mobile{
+      padding-inline: 20px;
+    }
+
+    &:focus{
+      border-color: var(--color-accent);
+      outline: none;
+    }
+
+    &::placeholder{
+      color: var(--color-gray-alt);
+    }
+
+    &--textarea{
+      padding-block: 18px;
+      resize: none;
+      height: 190px;
+
+      @include mobile{
+        height: 130px;
+      }
+    }
+  }
+}

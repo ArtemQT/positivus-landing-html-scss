@@ -1,0 +1,71 @@
+.contact-us{
+  position: relative;
+  overflow: hidden;
+
+  @include tablet {
+    &:after {
+      display: none;
+    }
+  }
+
+  @include mobile-above{
+    padding: 60px 100px 80px 100px;
+    background-color: var(--color-gray);
+    border-radius: var(--border-radius-large);
+  }
+
+  &__request-types,
+  &__body{
+    background-color: var(--color-gray);
+  }
+
+  &__request-types{
+    @include mobile{
+      padding: 40px 52px 36px 52px ;
+      border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+    }
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-above{
+      max-width: 555px;
+    }
+
+    @include mobile-above{
+      row-gap: 40px;
+    }
+
+  }
+
+  &__body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    @include mobile{
+      padding: 10px 30px 50px;
+      border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+      margin-bottom: 30px;
+      row-gap: 20px;
+    }
+  }
+
+  &::after{
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    translate: -50% -50%;
+
+    height: 650px;
+    aspect-ratio: 1;
+
+    background: url("../../images/contact-us-bg.svg") center/contain no-repeat;
+  }
+
+
+}

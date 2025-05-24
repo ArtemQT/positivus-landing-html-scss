@@ -1,0 +1,41 @@
+.radio{
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+
+  &__emulator{
+    @include square(28);
+
+    background-color: var(--color-light);
+    border: var(--border);
+    border-radius: 50%;
+
+    position: relative;
+
+    &:after{
+      content: '';
+
+      @include abs-center();
+      @include square(14);
+
+      background-color: var(--color-accent);
+      border-radius: inherit;
+
+      transition-duration: var(--transition-duration);
+    }
+  }
+
+  &__input:checked ~ &__emulator::after{
+    background-color: var(--color-accent);
+  }
+
+  &__input:not(:checked) ~ &__emulator::after{
+    opacity: 0;
+  }
+
+  @include mobile{
+    &__label{
+      font-size: 16px;
+    }
+  }
+}
