@@ -1137,9 +1137,24 @@ h4 {
   flex-direction: column;
   row-gap: 40px;
 }
+@media (max-width: 1280px) {
+  .team__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .team__list {
+    grid-template-columns: 1fr;
+  }
+}
 .team__button {
   width: 270px;
   align-self: end;
+}
+@media (max-width: 767px) {
+  .team__button {
+    width: 100%;
+  }
 }
 
 .team-card {

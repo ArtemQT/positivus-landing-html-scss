@@ -4,10 +4,21 @@
   row-gap: 40px;
 
   &__list{
+    @include desktop{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile{
+      grid-template-columns: 1fr;
+    }
   }
 
   &__button{
     width: 270px;
     align-self: end;
+
+    @include mobile{
+      width: 100%;
+    }
   }
 }
