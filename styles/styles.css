@@ -241,20 +241,24 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 
-h1 {
+h1, .h1 {
   font-size: clamp(42px, 4.1666666667vw, 60px);
 }
 
-h2 {
+h2, .h2 {
   font-size: clamp(36px, 2.7777777778vw, 40px);
 }
 
-h3 {
+h3, .h3 {
   font-size: clamp(26px, 2.0833333333vw, 30px);
 }
 
-h4 {
+h4, .h4 {
   font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+p {
+  margin: 0;
 }
 
 .container {
@@ -407,6 +411,22 @@ h4 {
 .button--transparent {
   background-color: transparent;
   color: var(--color-dark);
+}
+.button--accent {
+  color: var(--color-dark);
+  background-color: var(--color-accent);
+}
+@media (hover: hover) {
+  .button--accent:hover {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
+}
+@media (hover: none) {
+  .button--accent:active {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
 }
 
 .burger-button {
@@ -1448,9 +1468,25 @@ h4 {
 }
 
 .field {
+  --fieldInputHeight: var(--input-height);
+  --fieldInputTextColor: var(--color-dark);
+  --fieldInputBgColor: var(--color-light);
+  --fieldInputBorderColor: var(--color-dark);
+  --fieldInputPlaceHolderColor: var(--color-dark-alt);
+  --fieldInputHoverColor: var(--color-accent);
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+}
+.field--big-height {
+  --fieldInputHeight: 70px;
+}
+.field--bg-dark {
+  --fieldInputTextColor: var(--color-light);
+  --fieldInputBgColor: var(--color-dark-alt);
+  --fieldInputPlaceHolderColor: var(--color-light);
+  --fieldInputBorderColor: var(--color-light);
+  --fieldInputHoverColor: var(--color-dark);
 }
 @media (max-width: 767px) {
   .field {
@@ -1458,18 +1494,21 @@ h4 {
   }
 }
 .field__input {
-  padding: 18px 30px;
+  padding-inline: 30px;
   border-radius: var(--border-radius);
-  border: var(--border);
+  height: var(--fieldInputHeight);
+  border: 1px solid var(--fieldInputBorderColor);
+  color: var(--fieldInputTextColor);
+  background-color: var(--fieldInputBgColor);
 }
 @media (hover: hover) {
   .field__input:hover {
-    background-color: var(--color-accent);
+    background-color: var(--fieldInputHoverColor);
   }
 }
 @media (hover: none) {
   .field__input:active {
-    background-color: var(--color-accent);
+    background-color: var(--fieldInputHoverColor);
   }
 }
 @media (max-width: 767px) {
@@ -1482,7 +1521,7 @@ h4 {
   outline: none;
 }
 .field__input::placeholder {
-  color: var(--color-gray-alt);
+  color: var(--fieldInputPlaceHolderColor);
 }
 .field__input--textarea {
   padding-block: 18px;
@@ -1492,6 +1531,215 @@ h4 {
 @media (max-width: 767px) {
   .field__input--textarea {
     height: 130px;
+  }
+}
+
+.footer {
+  padding-top: 70px;
+  background-color: var(--color-dark);
+}
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 35px;
+  }
+}
+.footer__inner {
+  color: var(--color-light);
+  padding: 55px 60px 50px 60px;
+}
+@media (max-width: 767px) {
+  .footer__inner {
+    padding: 50px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 35px;
+  }
+}
+@media (min-width: 768px) {
+  .footer__inner {
+    border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+    background-color: var(--color-dark);
+  }
+}
+.footer__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 65px;
+}
+@media (max-width: 1023px) {
+  .footer__navigation {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  .footer__navigation {
+    display: contents;
+  }
+}
+.footer__menu-list {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+@media (max-width: 767px) {
+  .footer__menu-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+.footer__menu-link {
+  text-decoration: underline;
+}
+@media (hover: hover) {
+  .footer__menu-link:hover {
+    color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .footer__menu-link:active {
+    color: var(--color-accent);
+  }
+}
+@media (max-width: 767px) {
+  .footer__menu-link {
+    text-decoration: none;
+  }
+}
+.footer__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--color-light);
+}
+@media (max-width: 767px) {
+  .footer__body {
+    flex-direction: column;
+    gap: 35px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+  }
+}
+.footer__extra {
+  display: flex;
+  align-items: start;
+  column-gap: 50px;
+}
+@media (max-width: 767px) {
+  .footer__extra {
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: center;
+    order: 2;
+  }
+}
+
+.socials__list {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+@media (max-width: 767px) {
+  .socials__list {
+    display: inline-flex;
+  }
+}
+.socials__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  aspect-ratio: 1;
+  background-color: var(--color-light);
+  border-radius: 50%;
+  color: var(--color-dark);
+}
+.socials__link svg {
+  width: 50%;
+  height: 50%;
+}
+@media (hover: hover) {
+  .socials__link:hover {
+    background-color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .socials__link:active {
+    background-color: var(--color-accent);
+  }
+}
+@media (max-width: 767px) {
+  .socials {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 35px;
+    border-bottom: 1px solid var(--color-light);
+    order: 1;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: start;
+}
+@media (max-width: 767px) {
+  .contacts {
+    align-items: center;
+    row-gap: 40px;
+    order: -3;
+  }
+}
+.contacts__body {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+@media (max-width: 767px) {
+  .contacts__body {
+    align-items: center;
+    row-gap: 15px;
+  }
+}
+@media (hover: hover) {
+  .contacts__body a:hover {
+    color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .contacts__body a:active {
+    color: var(--color-accent);
+  }
+}
+.contacts__body p {
+  text-align: center;
+}
+.contacts__title {
+  color: var(--color-dark);
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 20px;
+  padding: 58px 40px;
+  background-color: var(--color-dark-alt);
+  border-radius: var(--border-radius);
+}
+@media (max-width: 1280px) {
+  .subscribe-form {
+    max-width: 450px;
+    width: 100%;
+    flex-direction: column;
+    padding: 30px;
   }
 }
 
